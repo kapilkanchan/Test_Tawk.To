@@ -1,32 +1,31 @@
-import Foundation
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let user = try? newJSONDecoder().decode(User.self, from: jsonData)
+//   let profileUser = try? newJSONDecoder().decode(ProfileUser.self, from: jsonData)
 
 import Foundation
 
-// MARK: - User
+// MARK: - ProfileUser
 struct ProfileUser: Codable {
-    let login: String
+    let login: String?
     let id: Int
-    let nodeID: String
-    let avatarURL: String
-    let gravatarID: String
-    let url, htmlURL, followersURL: String
-    let followingURL, gistsURL, starredURL: String
-    let subscriptionsURL, organizationsURL, reposURL: String
-    let eventsURL: String
-    let receivedEventsURL: String
-    let type: String
-    let siteAdmin: Bool
-    let name: String
+    let nodeID: String?
+    let avatarURL: String?
+    let gravatarID: String?
+    let url, htmlURL, followersURL: String?
+    let followingURL, gistsURL, starredURL: String?
+    let subscriptionsURL, organizationsURL, reposURL: String?
+    let eventsURL: String?
+    let receivedEventsURL: String?
+    let type: String?
+    let siteAdmin: Bool?
+    let name: String?
     let company: String?
-    let blog: String
-    let location, email, hireable, bio: String?
-    let twitterUsername: String
-    let publicRepos, publicGists, followers, following: Int
+    let blog: String?
+    let location, email, bio: String?
+    let hireable: Bool?
+    let twitterUsername: String?
+    let publicRepos, publicGists, followers, following: Int?
 //    let createdAt, updatedAt: Date
 
     enum CodingKeys: String, CodingKey {
@@ -56,30 +55,3 @@ struct ProfileUser: Codable {
 //        case updatedAt = "updated_at"
     }
 }
-
-// MARK: - Encode/decode helpers
-
-//class JSONNull: Codable, Hashable {
-//
-//    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-//        return true
-//    }
-//
-//    public var hashValue: Int {
-//        return 0
-//    }
-//
-//    public init() {}
-//
-//    public required init(from decoder: Decoder) throws {
-//        let container = try decoder.singleValueContainer()
-//        if !container.decodeNil() {
-//            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-//        }
-//    }
-//
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.singleValueContainer()
-//        try container.encodeNil()
-//    }
-//}

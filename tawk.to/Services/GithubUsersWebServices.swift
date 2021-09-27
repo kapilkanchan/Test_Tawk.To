@@ -18,25 +18,25 @@ class GithubUsersWebServices {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
-                print("Failed request from Weatherbit: \(error!.localizedDescription)")
+                print("Failed request from github users: \(error!.localizedDescription)")
                 completion(nil, .returnedError(error!))
                 return
             }
             
             guard let data = data else {
-                print("No data returned from Weatherbit")
+                print("No data returned from github users")
                 completion(nil, .noData)
                 return
             }
             
             guard let response = response as? HTTPURLResponse else {
-                print("Unable to process Weatherbit response")
+                print("Unable to process github users response")
                 completion(nil, .invalidResponse)
                 return
             }
             
             guard response.statusCode == 200 else {
-                print("Failure response from Weatherbit: \(response.statusCode)")
+                print("Failure response from github users: \(response.statusCode)")
                 completion(nil, .failedRequest)
                 return
             }
@@ -48,8 +48,8 @@ class GithubUsersWebServices {
         
     }
     
-    static func fetchUsersListData(completion: @escaping githubUsersDataCompletion) {
-        let url = URL(string: "https://api.github.com/users?since=0")!
+    static func fetchUsersListData(_ id: Int, completion: @escaping githubUsersDataCompletion) {
+        let url = URL(string: "https://api.github.com/users?since=\(id)")!
         
         fetchData(from: url) { data, error in
             guard error == nil,
@@ -68,8 +68,8 @@ class GithubUsersWebServices {
         }
     }
     
-    static func fetchUserProfile(completion: @escaping profileUserDataCompletion) {
-        let url = URL(string: "https://api.github.com/users/tawk")!
+    static func fetchUserProfile(for user: String, completion: @escaping profileUserDataCompletion) {
+        let url = URL(string: "https://api.github.com/users/\(user)")!
 
         fetchData(from: url) { data, error in
             guard error == nil,
@@ -78,16 +78,16 @@ class GithubUsersWebServices {
                 return
             }
             do {
-                let decoder = JSONDecoder()
-                
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"                
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                
+                let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
                 let profileUserData = try decoder.decode(ProfileUser.self, from: data)
                 completion(profileUserData, nil)
             } catch {
-                print("Unable to decode GithubUsersData response: \(error.localizedDescription)")
+                print("Unable to decode GithubUsersData response: \(error)")
                 completion(nil, .parsingFailure)
             }
         }
