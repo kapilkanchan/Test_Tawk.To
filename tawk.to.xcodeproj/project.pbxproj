@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4448CDC127099C8500EE3A47 /* Users_DB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDBE27099C8400EE3A47 /* Users_DB+CoreDataProperties.swift */; };
+		4448CDC327099C8500EE3A47 /* Users_DB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDBF27099C8400EE3A47 /* Users_DB+CoreDataClass.swift */; };
+		4448CDD72709A33200EE3A47 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDD62709A33200EE3A47 /* Profile+CoreDataProperties.swift */; };
+		4448CDD82709A33200EE3A47 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDD52709A33200EE3A47 /* Profile+CoreDataClass.swift */; };
 		444C590C2700AD7400A949A1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C590B2700AD7400A949A1 /* Utility.swift */; };
+		444CFDFC2708AD6A008E626D /* InvertedImageUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444CFDFB2708AD6A008E626D /* InvertedImageUserTableViewCell.swift */; };
+		444CFDFE2708AD81008E626D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444CFDFD2708AD81008E626D /* NoteTableViewCell.swift */; };
 		44509EA126F6F12F001EE2B3 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44509EA026F6F12F001EE2B3 /* UserTableViewCell.swift */; };
 		44509EA326F75C79001EE2B3 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44509EA226F75C79001EE2B3 /* UserDetailViewController.swift */; };
 		44509EA726F769C7001EE2B3 /* ProfileUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44509EA626F769C7001EE2B3 /* ProfileUserModel.swift */; };
 		44509EAA26F76F13001EE2B3 /* ProfileUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44509EA926F76F13001EE2B3 /* ProfileUserViewModel.swift */; };
+		4451B5C1270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4451B5BF270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld */; };
+		4451B5C3270432F00023C1C1 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4451B5C2270432F00023C1C1 /* PersistanceService.swift */; };
 		44F3E43F26F6171A0021418F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E43E26F6171A0021418F /* AppDelegate.swift */; };
 		44F3E44126F6171A0021418F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E44026F6171A0021418F /* SceneDelegate.swift */; };
 		44F3E44326F6171A0021418F /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E44226F6171A0021418F /* HomePageViewController.swift */; };
@@ -27,11 +35,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4448CDBE27099C8400EE3A47 /* Users_DB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Users_DB+CoreDataProperties.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Users_DB+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		4448CDBF27099C8400EE3A47 /* Users_DB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Users_DB+CoreDataClass.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Users_DB+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		4448CDD52709A33200EE3A47 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataClass.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Profile+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		4448CDD62709A33200EE3A47 /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataProperties.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Profile+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		444C590B2700AD7400A949A1 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		444CFDFB2708AD6A008E626D /* InvertedImageUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedImageUserTableViewCell.swift; sourceTree = "<group>"; };
+		444CFDFD2708AD81008E626D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		44509EA026F6F12F001EE2B3 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		44509EA226F75C79001EE2B3 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		44509EA626F769C7001EE2B3 /* ProfileUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserModel.swift; sourceTree = "<group>"; };
 		44509EA926F76F13001EE2B3 /* ProfileUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewModel.swift; sourceTree = "<group>"; };
+		4451B5C0270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistanceStoreModel.xcdatamodel; sourceTree = "<group>"; };
+		4451B5C2270432F00023C1C1 /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
 		44F3E43B26F6171A0021418F /* tawk.to.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tawk.to.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F3E43E26F6171A0021418F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F3E44026F6171A0021418F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +87,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4448CDD92709B46F00EE3A47 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				444CFDFB2708AD6A008E626D /* InvertedImageUserTableViewCell.swift */,
+				44509EA026F6F12F001EE2B3 /* UserTableViewCell.swift */,
+				444CFDFD2708AD81008E626D /* NoteTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		444C590D2700AD7900A949A1 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,9 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				44F3E44226F6171A0021418F /* HomePageViewController.swift */,
-				44509EA026F6F12F001EE2B3 /* UserTableViewCell.swift */,
 				44F3E45526F619DE0021418F /* UserListViewModel.swift */,
 				44F3E45A26F627A90021418F /* UserListModel.swift */,
+				4448CDD92709B46F00EE3A47 /* TableViewCells */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -104,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				44F3E45C26F62BC20021418F /* GithubUsersWebServices.swift */,
+				4451B5C2270432F00023C1C1 /* PersistanceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -141,6 +168,11 @@
 				44F3E44C26F6171D0021418F /* LaunchScreen.storyboard */,
 				44F3E44F26F6171D0021418F /* Info.plist */,
 				44F3E44726F6171A0021418F /* tawk_to.xcdatamodeld */,
+				4451B5BF270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld */,
+				4448CDD52709A33200EE3A47 /* Profile+CoreDataClass.swift */,
+				4448CDD62709A33200EE3A47 /* Profile+CoreDataProperties.swift */,
+				4448CDBF27099C8400EE3A47 /* Users_DB+CoreDataClass.swift */,
+				4448CDBE27099C8400EE3A47 /* Users_DB+CoreDataProperties.swift */,
 			);
 			path = tawk.to;
 			sourceTree = "<group>";
@@ -275,17 +307,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4448CDC127099C8500EE3A47 /* Users_DB+CoreDataProperties.swift in Sources */,
+				444CFDFC2708AD6A008E626D /* InvertedImageUserTableViewCell.swift in Sources */,
 				44F3E45B26F627A90021418F /* UserListModel.swift in Sources */,
 				44509EA126F6F12F001EE2B3 /* UserTableViewCell.swift in Sources */,
 				44F3E45D26F62BC20021418F /* GithubUsersWebServices.swift in Sources */,
+				4451B5C1270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld in Sources */,
+				4448CDD82709A33200EE3A47 /* Profile+CoreDataClass.swift in Sources */,
+				4451B5C3270432F00023C1C1 /* PersistanceService.swift in Sources */,
+				444CFDFE2708AD81008E626D /* NoteTableViewCell.swift in Sources */,
 				44F3E44326F6171A0021418F /* HomePageViewController.swift in Sources */,
 				44F3E44926F6171A0021418F /* tawk_to.xcdatamodeld in Sources */,
 				44F3E43F26F6171A0021418F /* AppDelegate.swift in Sources */,
 				44509EA326F75C79001EE2B3 /* UserDetailViewController.swift in Sources */,
 				444C590C2700AD7400A949A1 /* Utility.swift in Sources */,
 				44F3E45926F61FD90021418F /* Box.swift in Sources */,
+				4448CDC327099C8500EE3A47 /* Users_DB+CoreDataClass.swift in Sources */,
 				44F3E44126F6171A0021418F /* SceneDelegate.swift in Sources */,
 				44509EAA26F76F13001EE2B3 /* ProfileUserViewModel.swift in Sources */,
+				4448CDD72709A33200EE3A47 /* Profile+CoreDataProperties.swift in Sources */,
 				44F3E45626F619DE0021418F /* UserListViewModel.swift in Sources */,
 				44509EA726F769C7001EE2B3 /* ProfileUserModel.swift in Sources */,
 			);
@@ -495,6 +535,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		4451B5BF270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4451B5C0270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodel */,
+			);
+			currentVersion = 4451B5C0270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodel */;
+			path = PersistanceStoreModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		44F3E44726F6171A0021418F /* tawk_to.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

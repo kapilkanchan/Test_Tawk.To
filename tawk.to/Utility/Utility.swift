@@ -7,7 +7,37 @@
 
 import UIKit.UIImageView
 
+// protocol oriented approach for implementing generic function
+protocol CoreData_Network_Protocol {
+    func getId() -> Int
+}
+
+extension User: CoreData_Network_Protocol {
+    func getId() -> Int {
+        return self.id
+    }
+}
+
+extension Users_DB: CoreData_Network_Protocol {
+    func getId() -> Int {
+        return Int(self.id)
+    }
+}
+//
+
+protocol cellProtocol {
+    
+}
+
 extension UIImageView {
+    func roundImage() {
+        self.layer.borderWidth = 1
+        self.layer.masksToBounds = false
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.cornerRadius = self.frame.height/2
+        self.clipsToBounds = true
+    }
+    
     func invertImageColors() {
         guard self.image != nil else {
             return
@@ -31,3 +61,4 @@ class Utility {
         alert.present(viewController, animated: true, completion: nil)
     }
 }
+

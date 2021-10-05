@@ -1,9 +1,3 @@
-//
-//  UserDetailViewController.swift
-//  tawk.to
-//
-//  Created by Kapil Kanchan on 19/09/21.
-//
 
 import UIKit
 
@@ -39,19 +33,17 @@ class UserDetailViewController: UIViewController {
                 return
             }
             DispatchQueue.main.async {
-                if profileUser.avatarURL != nil {                    
-                    self?.profilePic.kf.setImage(with: URL(string: profileUser.avatarURL!))
-                }
-                if profileUser.following != nil {
-                self?.followingLabel.text = "following:\(String(profileUser.following!))"
-                }
-                if profileUser.followers != nil {
-                self?.followersLabel.text = "followers:\(String(profileUser.followers!))"
-                }
                 
-                self?.nameLabel.text = profileUser.login != nil ? "name: \(String(describing: profileUser.login!))" : "No name"
+                if profileUser.avatarUrl != nil {
+                    self?.profilePic.kf.setImage(with: URL(string: profileUser.avatarUrl!))
+                }
+                self?.followingLabel.text = "following:\(String(profileUser.following))"
+                self?.followersLabel.text = "followers:\(String(profileUser.followers))"
+                
+                self?.nameLabel.text = profileUser.name != nil ? "name: \(String(describing: profileUser.name!))" : "No name"
                 self?.companyLabel.text = profileUser.company != nil ? "company: \(profileUser.company!)" : "company: unknown"
                 self?.blogLabel.text = profileUser.blog != nil ? "blog: \(String(describing: profileUser.blog!))" : ""
+                self?.noteTextView.text = profileUser.notes ?? ""
             }
         })
         
@@ -59,6 +51,6 @@ class UserDetailViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
-        profilePic.invertImageColors()
+        viewModel.updateProfile(with: noteTextView.text)
     }
 }
