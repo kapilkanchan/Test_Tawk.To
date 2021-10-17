@@ -1,11 +1,14 @@
 import UIKit
-import Kingfisher
+import Network
 
 class HomePageViewController: UITableViewController, UISearchControllerDelegate {
+    
+    @IBOutlet weak var offlineLabel: UILabel!
     private let viewModel = UsersViewModel()
     var isLoading = false
     var largestUserId = 0
     let spinner = UIActivityIndicatorView(style: .large)
+    var networkCheck = NetworkCheck.sharedInstance()
     
     private lazy var searchController: UISearchController = {
         let sc = UISearchController(searchResultsController: nil)
@@ -13,17 +16,23 @@ class HomePageViewController: UITableViewController, UISearchControllerDelegate 
         sc.delegate = self
         sc.obscuresBackgroundDuringPresentation = false
         sc.searchBar.placeholder = "Search Users"
-        //        sc.searchBar.autocapitalizationType = .allCharacters
         return sc
     }()
     
     var users: [Users_DB] = []
     var filteredData: [Users_DB]!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networkCheck.addObserver(observer: self)
+
+        if networkCheck.currentStatus == .satisfied{
+//            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're online now")
+        }else{
+            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
+        }
+
         navigationItem.title = "HOME"
         navigationItem.searchController = searchController
         
@@ -50,7 +59,9 @@ class HomePageViewController: UITableViewController, UISearchControllerDelegate 
         if segue.identifier == "userDetailSegue" {
             if let destination = segue.destination as? UserDetailViewController,
                let indexPath = sender as? IndexPath {
+                destination.customDelegate = self
                 destination.username = filteredData[indexPath.row].name
+                destination.index = indexPath.row
             }
         }
     }
@@ -65,11 +76,10 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
         if (indexPath.row+1)%4 == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell1", for: indexPath) as! InvertedImageUserTableViewCell
             if let avatarUrl = filteredData[indexPath.row].avatarUrl {
-                cell.profilePic.kf.setImage(with: URL(string: avatarUrl), placeholder: nil, options: nil, completionHandler: { result in
-                    DispatchQueue.main.async {
-                        cell.profilePic.invertImageColors()
-                    }
-                })
+//                cell.profilePic.loadImageUsingCache(withUrl: avatarUrl)
+                cell.profilePic.loadImageUsingCache(withUrl: avatarUrl) {
+                    cell.profilePic.invertImageColors()
+                }
             }
             cell.usernameLabel.text = filteredData[indexPath.row].name
             cell.notes.isHidden = true
@@ -83,9 +93,8 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
             return cell
         } else if filteredData[indexPath.row].user_profile?.notes == nil || filteredData[indexPath.row].user_profile?.notes == "" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell", for: indexPath) as! UserTableViewCell
-            
             if let avatarUrl = filteredData[indexPath.row].avatarUrl {
-                cell.profilePic.kf.setImage(with: URL(string: avatarUrl))
+                cell.profilePic.loadImageUsingCache(withUrl: avatarUrl, completionHandler: nil)
             }
             
             cell.usernameLabel.text = filteredData[indexPath.row].name
@@ -94,7 +103,7 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
         } else if filteredData[indexPath.row].user_profile?.notes != nil && filteredData[indexPath.row].user_profile?.notes != "" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell2", for: indexPath) as! NoteTableViewCell
             if let avatarUrl = filteredData[indexPath.row].avatarUrl {
-                cell.profilePic.kf.setImage(with: URL(string: avatarUrl))
+                cell.profilePic.loadImageUsingCache(withUrl: avatarUrl, completionHandler: nil)
             }
             cell.usernameLabel.text = filteredData[indexPath.row].name
             cell.detailLabel.text = filteredData[indexPath.row].user_profile?.notes!
@@ -125,7 +134,7 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        guard searchController.searchBar.text != "" else {
+        guard searchController.searchBar.text == "" else {
             return
         }
         
@@ -151,14 +160,12 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
     }
     
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
-        // 1
         guard let newIndexPathsToReload = newIndexPathsToReload else {
             spinner.stopAnimating()
             tableView.isHidden = false
             tableView.reloadData()
             return
         }
-        // 2
         let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
         tableView.reloadRows(at: indexPathsToReload, with: .automatic)
     }
@@ -173,9 +180,36 @@ extension HomePageViewController: UISearchResultsUpdating {
         
         filteredData = searchText.isEmpty ? users : users.filter({(user: Users_DB) -> Bool in
             return (user.name.range(of: searchText, options: .caseInsensitive) != nil || user.user_profile?.notes?.range(of: searchText, options: .caseInsensitive) != nil)
-            
         })
 
         tableView.reloadData()
+    }
+}
+
+extension HomePageViewController: updateHomeFromUDVC {
+    func refreshProfile(with username: String, at index: Int) {
+        viewModel.checkForUserNote(with: username) { [unowned self] profile in
+            guard let profile = profile else {
+                return
+            }
+            self.viewModel.users.value[index].user_profile = profile
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+            }
+        }
+    }
+}
+
+extension HomePageViewController: NetworkCheckObserver {
+    func statusDidChange(status: NWPath.Status) {
+        print("status changed")
+        if networkCheck.currentStatus == .satisfied{
+            //changing from satisfied to unsatisfied
+            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
+        }else{
+            //changing from unsatisfied to satisfied
+            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're online now")
+        }
     }
 }

@@ -76,7 +76,6 @@ class PersistanceService {
         fetchRequest.predicate = profile ? NSPredicate(format: "login == %@",name!) : NSPredicate(format: "id > \(id!)")
         do {
             let count = try context.count(for: fetchRequest)
-//            let res = try context.fetch(fetchRequest)
             return count > 0 ? true : false
         } catch {
             return false

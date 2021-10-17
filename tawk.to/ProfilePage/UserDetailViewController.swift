@@ -1,11 +1,21 @@
 
 import UIKit
+import Network
+
+protocol updateHomeFromUDVC: AnyObject {
+    func refreshProfile(with username: String, at index: Int)
+}
 
 class UserDetailViewController: UIViewController {
 
+    weak var customDelegate: updateHomeFromUDVC?
+    
     private let viewModel = ProfileUserViewModel()
     var username: String!
+    var index: Int!
     
+    var networkCheck = NetworkCheck.sharedInstance()
+
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
@@ -20,6 +30,14 @@ class UserDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networkCheck.addObserver(observer: self)
+
+        if networkCheck.currentStatus == .satisfied{
+//            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're online now")
+        }else{
+            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
+        }
+
         self.title = username
         
         borderView.layer.borderWidth = 1
@@ -27,7 +45,6 @@ class UserDetailViewController: UIViewController {
         noteTextView.layer.borderWidth = 1
         noteTextView.layer.borderColor = UIColor.black.cgColor
 
-        
         viewModel.profileUser.bind(listener: { [weak self] profileUser in
             guard let profileUser = profileUser else {
                 return
@@ -35,7 +52,7 @@ class UserDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 if profileUser.avatarUrl != nil {
-                    self?.profilePic.kf.setImage(with: URL(string: profileUser.avatarUrl!))
+                    self?.profilePic.loadImageUsingCache(withUrl: profileUser.avatarUrl!, completionHandler: nil)
                 }
                 self?.followingLabel.text = "following:\(String(profileUser.following))"
                 self?.followersLabel.text = "followers:\(String(profileUser.followers))"
@@ -48,9 +65,27 @@ class UserDetailViewController: UIViewController {
         })
         
         viewModel.fetchUser(for: username)
+        
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
         viewModel.updateProfile(with: noteTextView.text)
+        
+        customDelegate?.refreshProfile(with: username,at: index)
+        
+        Utility.showAlert(viewController: self, title: "Note Saved", message: "Note successfully updated")
+    }
+}
+
+extension UserDetailViewController: NetworkCheckObserver {
+    func statusDidChange(status: NWPath.Status) {
+        print("status changed")
+        if networkCheck.currentStatus == .satisfied{
+            //changing from satisfied to unsatisfied
+            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
+        }else{
+            //changing from unsatisfied to satisfied
+            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're online now")
+        }
     }
 }

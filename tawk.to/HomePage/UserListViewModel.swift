@@ -1,8 +1,8 @@
 import Foundation
 
-protocol  getDataDelegate  {
-    func getDataFromAnotherVC(name: String)
-}
+//protocol  getDataDelegate  {
+//    func getDataFromAnotherVC(name: String)
+//}
 
 public class UsersViewModel {
 
@@ -14,7 +14,9 @@ public class UsersViewModel {
     
     let persistanceService = PersistanceService.shared
     
-    var delegateCustom : getDataDelegate?
+//    var delegateCustom : getDataDelegate?
+    
+    
     
     func fetchLocalUsers(from id: Int) {
         for description in persistanceService.persistentContainer.persistentStoreDescriptions {
@@ -28,7 +30,7 @@ public class UsersViewModel {
                     guard let profile = profile else {
                         return
                     }
-                    self?.delegateCustom?.getDataFromAnotherVC(name: profile.login)
+//                    self?.delegateCustom?.getDataFromAnotherVC(name: profile.login)
 
                     users[index].user_profile = profile
                     
@@ -49,6 +51,10 @@ public class UsersViewModel {
             return
         }
                 
+        for description in persistanceService.persistentContainer.persistentStoreDescriptions {
+            print("db location: \(description.url!)")
+        }
+
         isFetchInProgress = true
         
         let fetchIndex = incrementIndex || largestId > 0 ? largestId + 1 : largestId

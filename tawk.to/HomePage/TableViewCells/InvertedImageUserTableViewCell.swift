@@ -16,7 +16,6 @@ class InvertedImageUserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         profilePic.roundImage()
     }
 

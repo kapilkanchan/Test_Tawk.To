@@ -1,9 +1,3 @@
-//
-//  Utility.swift
-//  tawk.to
-//
-//  Created by Kapil Kanchan on 26/09/21.
-//
 
 import UIKit.UIImageView
 
@@ -24,10 +18,6 @@ extension Users_DB: CoreData_Network_Protocol {
     }
 }
 //
-
-protocol cellProtocol {
-    
-}
 
 extension UIImageView {
     func roundImage() {
@@ -54,11 +44,11 @@ extension UIImageView {
 }
 
 class Utility {
-    static func showAlert(viewController: UIViewController) {
-        let alert = UIAlertController.init(title: "Unreachable connectivity", message: "No Internet connection, could not refresh data", preferredStyle: .alert)
+    static func showAlert(viewController: UIViewController, title: String, message: String) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction.init(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        alert.present(viewController, animated: true, completion: nil)
+        viewController.present(alert, animated: true, completion: nil)
     }
 }
 

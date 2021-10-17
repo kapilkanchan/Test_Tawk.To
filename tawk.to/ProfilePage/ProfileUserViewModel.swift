@@ -52,6 +52,5 @@ public class ProfileUserViewModel {
             return
         }
         persistanceService.batchUpdateRequest(entityName: "Profile", updateAttribute: "notes", updateValue: note, name: login)
-    
     }
 }

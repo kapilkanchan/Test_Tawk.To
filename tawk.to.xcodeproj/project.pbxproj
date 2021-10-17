@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4437937627194FF6008703E9 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4437937527194FF6008703E9 /* InternetConnection.swift */; };
 		4448CDC127099C8500EE3A47 /* Users_DB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDBE27099C8400EE3A47 /* Users_DB+CoreDataProperties.swift */; };
 		4448CDC327099C8500EE3A47 /* Users_DB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDBF27099C8400EE3A47 /* Users_DB+CoreDataClass.swift */; };
 		4448CDD72709A33200EE3A47 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448CDD62709A33200EE3A47 /* Profile+CoreDataProperties.swift */; };
@@ -20,6 +21,7 @@
 		44509EAA26F76F13001EE2B3 /* ProfileUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44509EA926F76F13001EE2B3 /* ProfileUserViewModel.swift */; };
 		4451B5C1270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4451B5BF270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld */; };
 		4451B5C3270432F00023C1C1 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4451B5C2270432F00023C1C1 /* PersistanceService.swift */; };
+		44EBF97A271842AF0012B9E6 /* ImageCaching-Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EBF979271842AF0012B9E6 /* ImageCaching-Loading.swift */; };
 		44F3E43F26F6171A0021418F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E43E26F6171A0021418F /* AppDelegate.swift */; };
 		44F3E44126F6171A0021418F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E44026F6171A0021418F /* SceneDelegate.swift */; };
 		44F3E44326F6171A0021418F /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E44226F6171A0021418F /* HomePageViewController.swift */; };
@@ -31,10 +33,10 @@
 		44F3E45926F61FD90021418F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45826F61FD90021418F /* Box.swift */; };
 		44F3E45B26F627A90021418F /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45A26F627A90021418F /* UserListModel.swift */; };
 		44F3E45D26F62BC20021418F /* GithubUsersWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45C26F62BC20021418F /* GithubUsersWebServices.swift */; };
-		FCDDC9A5C5B7BDFB00670BC1 /* Pods_tawk_to.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7130DE8B33D7964DF4D8C638 /* Pods_tawk_to.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4437937527194FF6008703E9 /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		4448CDBE27099C8400EE3A47 /* Users_DB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Users_DB+CoreDataProperties.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Users_DB+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4448CDBF27099C8400EE3A47 /* Users_DB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Users_DB+CoreDataClass.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Users_DB+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		4448CDD52709A33200EE3A47 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataClass.swift"; path = "/Users/iosdeveloper/Documents/Development Projects/tawk.to/tawk.to/Profile+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -48,6 +50,7 @@
 		44509EA926F76F13001EE2B3 /* ProfileUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewModel.swift; sourceTree = "<group>"; };
 		4451B5C0270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistanceStoreModel.xcdatamodel; sourceTree = "<group>"; };
 		4451B5C2270432F00023C1C1 /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		44EBF979271842AF0012B9E6 /* ImageCaching-Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageCaching-Loading.swift"; sourceTree = "<group>"; };
 		44F3E43B26F6171A0021418F /* tawk.to.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tawk.to.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F3E43E26F6171A0021418F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F3E44026F6171A0021418F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +64,6 @@
 		44F3E45826F61FD90021418F /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		44F3E45A26F627A90021418F /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
 		44F3E45C26F62BC20021418F /* GithubUsersWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersWebServices.swift; sourceTree = "<group>"; };
-		61E8E5EA7B6CAC81F7DCA917 /* Pods-tawk.to.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tawk.to.release.xcconfig"; path = "Target Support Files/Pods-tawk.to/Pods-tawk.to.release.xcconfig"; sourceTree = "<group>"; };
-		7130DE8B33D7964DF4D8C638 /* Pods_tawk_to.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tawk_to.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E58CCBF62381EB800C30D69 /* Pods-tawk.to.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tawk.to.debug.xcconfig"; path = "Target Support Files/Pods-tawk.to/Pods-tawk.to.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCDDC9A5C5B7BDFB00670BC1 /* Pods_tawk_to.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,8 +80,6 @@
 		286C992A41A7A5EFCE43B0F2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9E58CCBF62381EB800C30D69 /* Pods-tawk.to.debug.xcconfig */,
-				61E8E5EA7B6CAC81F7DCA917 /* Pods-tawk.to.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -101,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				444C590B2700AD7400A949A1 /* Utility.swift */,
+				44EBF979271842AF0012B9E6 /* ImageCaching-Loading.swift */,
+				4437937527194FF6008703E9 /* InternetConnection.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -141,7 +140,6 @@
 				44F3E43D26F6171A0021418F /* tawk.to */,
 				44F3E43C26F6171A0021418F /* Products */,
 				286C992A41A7A5EFCE43B0F2 /* Pods */,
-				6188A0A27763F4453B440C87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,14 +183,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		6188A0A27763F4453B440C87 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7130DE8B33D7964DF4D8C638 /* Pods_tawk_to.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,11 +190,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44F3E45226F6171D0021418F /* Build configuration list for PBXNativeTarget "tawk.to" */;
 			buildPhases = (
-				FD25432142F76DFA8E4F88DA /* [CP] Check Pods Manifest.lock */,
 				44F3E43726F6171A0021418F /* Sources */,
 				44F3E43826F6171A0021418F /* Frameworks */,
 				44F3E43926F6171A0021418F /* Resources */,
-				573557608D16450A2F3FFE7F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,48 +248,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		573557608D16450A2F3FFE7F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tawk.to/Pods-tawk.to-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tawk.to/Pods-tawk.to-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tawk.to/Pods-tawk.to-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD25432142F76DFA8E4F88DA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tawk.to-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		44F3E43726F6171A0021418F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -313,11 +259,13 @@
 				44509EA126F6F12F001EE2B3 /* UserTableViewCell.swift in Sources */,
 				44F3E45D26F62BC20021418F /* GithubUsersWebServices.swift in Sources */,
 				4451B5C1270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld in Sources */,
+				44EBF97A271842AF0012B9E6 /* ImageCaching-Loading.swift in Sources */,
 				4448CDD82709A33200EE3A47 /* Profile+CoreDataClass.swift in Sources */,
 				4451B5C3270432F00023C1C1 /* PersistanceService.swift in Sources */,
 				444CFDFE2708AD81008E626D /* NoteTableViewCell.swift in Sources */,
 				44F3E44326F6171A0021418F /* HomePageViewController.swift in Sources */,
 				44F3E44926F6171A0021418F /* tawk_to.xcdatamodeld in Sources */,
+				4437937627194FF6008703E9 /* InternetConnection.swift in Sources */,
 				44F3E43F26F6171A0021418F /* AppDelegate.swift in Sources */,
 				44509EA326F75C79001EE2B3 /* UserDetailViewController.swift in Sources */,
 				444C590C2700AD7400A949A1 /* Utility.swift in Sources */,
@@ -471,7 +419,6 @@
 		};
 		44F3E45326F6171D0021418F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E58CCBF62381EB800C30D69 /* Pods-tawk.to.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,7 +439,6 @@
 		};
 		44F3E45426F6171D0021418F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61E8E5EA7B6CAC81F7DCA917 /* Pods-tawk.to.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
