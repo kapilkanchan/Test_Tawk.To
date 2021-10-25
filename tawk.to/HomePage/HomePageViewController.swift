@@ -4,7 +4,7 @@ import Network
 class HomePageViewController: UITableViewController, UISearchControllerDelegate {
     
     @IBOutlet weak var offlineLabel: UILabel!
-    private let viewModel = UsersViewModel()
+    private let viewModel = ListUsersViewModel()
     var isLoading = false
     var largestUserId = 0
     let spinner = UIActivityIndicatorView(style: .large)
@@ -27,9 +27,9 @@ class HomePageViewController: UITableViewController, UISearchControllerDelegate 
         
         networkCheck.addObserver(observer: self)
 
-        if networkCheck.currentStatus == .satisfied{
+        if networkCheck.currentStatus == .satisfied {
 //            Utility.showAlert(viewController: self, title: "Network Connection", message: "You're online now")
-        }else{
+        } else {
             Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
         }
 
@@ -51,8 +51,35 @@ class HomePageViewController: UITableViewController, UISearchControllerDelegate 
                 self?.tableView.reloadData()
             }
         }
-        
-        viewModel.fetchListOfUsers(incrementIndex: false)
+        fetchUserData(fetchNextPage: false)
+    }
+    
+    private func fetchUserData(fetchNextPage: Bool) {
+        if viewModel.isDataForLocalUsersExist() {
+            viewModel.fetchLocalUsers()
+        } else {
+            viewModel.fetchListOfUsers(incrementIndex: fetchNextPage) { [unowned self] result in
+                switch result {
+                case .success(let users) :
+                    self.viewModel.saveDataToPersistanceStore(usersData: users)
+                    self.viewModel.fetchLocalUsers()
+                    break
+                case .failure(let error) :
+                    switch error {
+                    case .localizedDescription(let desc):
+                        DispatchQueue.main.async {
+                            if desc.elementsEqual("The Internet connection appears to be offline.") {
+                                Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
+                            } else {
+                                Utility.showAlert(viewController: self, title: "Error", message: error.localizedDescription)
+                            }
+                        }
+                        break
+                    }
+                    break
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,7 +103,6 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
         if (indexPath.row+1)%4 == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell1", for: indexPath) as! InvertedImageUserTableViewCell
             if let avatarUrl = filteredData[indexPath.row].avatarUrl {
-//                cell.profilePic.loadImageUsingCache(withUrl: avatarUrl)
                 cell.profilePic.loadImageUsingCache(withUrl: avatarUrl) {
                     cell.profilePic.invertImageColors()
                 }
@@ -139,7 +165,9 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
         }
         
         if indexPaths.contains(where: isLoadingCell) {
-            loadMoreData()
+            DispatchQueue.main.asyncAfter(deadline: .now()+3) { [unowned self] in
+                self.fetchUserData(fetchNextPage: true)
+            }
         }
     }
     
@@ -152,13 +180,7 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
         let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
         return Array(indexPathsIntersection)
     }
-    
-    func loadMoreData() {
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) { [weak self] in
-            self?.viewModel.fetchListOfUsers(incrementIndex: true)
-        }
-    }
-    
+        
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
         guard let newIndexPathsToReload = newIndexPathsToReload else {
             spinner.stopAnimating()
@@ -172,7 +194,6 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
 }
 
 extension HomePageViewController: UISearchResultsUpdating {
-    
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else {
             return
@@ -188,7 +209,7 @@ extension HomePageViewController: UISearchResultsUpdating {
 
 extension HomePageViewController: updateHomeFromUDVC {
     func refreshProfile(with username: String, at index: Int) {
-        viewModel.checkForUserNote(with: username) { [unowned self] profile in
+        viewModel.fetchUserProfile(with: username) { [unowned self] profile in
             guard let profile = profile else {
                 return
             }

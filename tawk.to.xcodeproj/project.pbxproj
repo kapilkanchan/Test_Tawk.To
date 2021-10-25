@@ -21,6 +21,9 @@
 		44509EAA26F76F13001EE2B3 /* ProfileUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44509EA926F76F13001EE2B3 /* ProfileUserViewModel.swift */; };
 		4451B5C1270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4451B5BF270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld */; };
 		4451B5C3270432F00023C1C1 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4451B5C2270432F00023C1C1 /* PersistanceService.swift */; };
+		446A0FAD2725C0BE00C21D2B /* PersistanceDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A0FAC2725C0BE00C21D2B /* PersistanceDataTests.swift */; };
+		446A0FAF2725D43300C21D2B /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A0FAE2725D43300C21D2B /* TestCoreDataStack.swift */; };
+		44DEB82F2724720B006333F8 /* tawk_toTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB82E2724720B006333F8 /* tawk_toTests.swift */; };
 		44EBF97A271842AF0012B9E6 /* ImageCaching-Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EBF979271842AF0012B9E6 /* ImageCaching-Loading.swift */; };
 		44F3E43F26F6171A0021418F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E43E26F6171A0021418F /* AppDelegate.swift */; };
 		44F3E44126F6171A0021418F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E44026F6171A0021418F /* SceneDelegate.swift */; };
@@ -29,11 +32,21 @@
 		44F3E44926F6171A0021418F /* tawk_to.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E44726F6171A0021418F /* tawk_to.xcdatamodeld */; };
 		44F3E44B26F6171D0021418F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F3E44A26F6171D0021418F /* Assets.xcassets */; };
 		44F3E44E26F6171D0021418F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F3E44C26F6171D0021418F /* LaunchScreen.storyboard */; };
-		44F3E45626F619DE0021418F /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45526F619DE0021418F /* UserListViewModel.swift */; };
+		44F3E45626F619DE0021418F /* ListUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45526F619DE0021418F /* ListUsersViewModel.swift */; };
 		44F3E45926F61FD90021418F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45826F61FD90021418F /* Box.swift */; };
-		44F3E45B26F627A90021418F /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45A26F627A90021418F /* UserListModel.swift */; };
-		44F3E45D26F62BC20021418F /* GithubUsersWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45C26F62BC20021418F /* GithubUsersWebServices.swift */; };
+		44F3E45B26F627A90021418F /* ListUsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45A26F627A90021418F /* ListUsersModel.swift */; };
+		44F3E45D26F62BC20021418F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3E45C26F62BC20021418F /* APIService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44DEB8312724720B006333F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44F3E43326F6171A0021418F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44F3E43A26F6171A0021418F;
+			remoteInfo = tawk.to;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4437937527194FF6008703E9 /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
@@ -50,6 +63,11 @@
 		44509EA926F76F13001EE2B3 /* ProfileUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewModel.swift; sourceTree = "<group>"; };
 		4451B5C0270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistanceStoreModel.xcdatamodel; sourceTree = "<group>"; };
 		4451B5C2270432F00023C1C1 /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		446A0FAC2725C0BE00C21D2B /* PersistanceDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceDataTests.swift; sourceTree = "<group>"; };
+		446A0FAE2725D43300C21D2B /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
+		44DEB82C2724720B006333F8 /* tawk.toTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tawk.toTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44DEB82E2724720B006333F8 /* tawk_toTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tawk_toTests.swift; sourceTree = "<group>"; };
+		44DEB8302724720B006333F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44EBF979271842AF0012B9E6 /* ImageCaching-Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageCaching-Loading.swift"; sourceTree = "<group>"; };
 		44F3E43B26F6171A0021418F /* tawk.to.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tawk.to.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F3E43E26F6171A0021418F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,13 +78,20 @@
 		44F3E44A26F6171D0021418F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F3E44D26F6171D0021418F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44F3E44F26F6171D0021418F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44F3E45526F619DE0021418F /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		44F3E45526F619DE0021418F /* ListUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersViewModel.swift; sourceTree = "<group>"; };
 		44F3E45826F61FD90021418F /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		44F3E45A26F627A90021418F /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
-		44F3E45C26F62BC20021418F /* GithubUsersWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersWebServices.swift; sourceTree = "<group>"; };
+		44F3E45A26F627A90021418F /* ListUsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersModel.swift; sourceTree = "<group>"; };
+		44F3E45C26F62BC20021418F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		44DEB8292724720B006333F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44F3E43826F6171A0021418F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				44F3E44226F6171A0021418F /* HomePageViewController.swift */,
-				44F3E45526F619DE0021418F /* UserListViewModel.swift */,
-				44F3E45A26F627A90021418F /* UserListModel.swift */,
+				44F3E45526F619DE0021418F /* ListUsersViewModel.swift */,
+				44F3E45A26F627A90021418F /* ListUsersModel.swift */,
 				4448CDD92709B46F00EE3A47 /* TableViewCells */,
 			);
 			path = HomePage;
@@ -128,16 +153,28 @@
 		44509EA826F76E85001EE2B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				44F3E45C26F62BC20021418F /* GithubUsersWebServices.swift */,
+				44F3E45C26F62BC20021418F /* APIService.swift */,
 				4451B5C2270432F00023C1C1 /* PersistanceService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		44DEB82D2724720B006333F8 /* tawk.toTests */ = {
+			isa = PBXGroup;
+			children = (
+				44DEB82E2724720B006333F8 /* tawk_toTests.swift */,
+				446A0FAC2725C0BE00C21D2B /* PersistanceDataTests.swift */,
+				446A0FAE2725D43300C21D2B /* TestCoreDataStack.swift */,
+				44DEB8302724720B006333F8 /* Info.plist */,
+			);
+			path = tawk.toTests;
 			sourceTree = "<group>";
 		};
 		44F3E43226F6171A0021418F = {
 			isa = PBXGroup;
 			children = (
 				44F3E43D26F6171A0021418F /* tawk.to */,
+				44DEB82D2724720B006333F8 /* tawk.toTests */,
 				44F3E43C26F6171A0021418F /* Products */,
 				286C992A41A7A5EFCE43B0F2 /* Pods */,
 			);
@@ -147,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				44F3E43B26F6171A0021418F /* tawk.to.app */,
+				44DEB82C2724720B006333F8 /* tawk.toTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +224,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		44DEB82B2724720B006333F8 /* tawk.toTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44DEB8332724720B006333F8 /* Build configuration list for PBXNativeTarget "tawk.toTests" */;
+			buildPhases = (
+				44DEB8282724720B006333F8 /* Sources */,
+				44DEB8292724720B006333F8 /* Frameworks */,
+				44DEB82A2724720B006333F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44DEB8322724720B006333F8 /* PBXTargetDependency */,
+			);
+			name = tawk.toTests;
+			productName = tawk.toTests;
+			productReference = 44DEB82C2724720B006333F8 /* tawk.toTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		44F3E43A26F6171A0021418F /* tawk.to */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44F3E45226F6171D0021418F /* Build configuration list for PBXNativeTarget "tawk.to" */;
@@ -212,6 +268,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					44DEB82B2724720B006333F8 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 44F3E43A26F6171A0021418F;
+					};
 					44F3E43A26F6171A0021418F = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -231,11 +291,19 @@
 			projectRoot = "";
 			targets = (
 				44F3E43A26F6171A0021418F /* tawk.to */,
+				44DEB82B2724720B006333F8 /* tawk.toTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		44DEB82A2724720B006333F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44F3E43926F6171A0021418F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,15 +317,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		44DEB8282724720B006333F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				446A0FAD2725C0BE00C21D2B /* PersistanceDataTests.swift in Sources */,
+				44DEB82F2724720B006333F8 /* tawk_toTests.swift in Sources */,
+				446A0FAF2725D43300C21D2B /* TestCoreDataStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44F3E43726F6171A0021418F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4448CDC127099C8500EE3A47 /* Users_DB+CoreDataProperties.swift in Sources */,
 				444CFDFC2708AD6A008E626D /* InvertedImageUserTableViewCell.swift in Sources */,
-				44F3E45B26F627A90021418F /* UserListModel.swift in Sources */,
+				44F3E45B26F627A90021418F /* ListUsersModel.swift in Sources */,
 				44509EA126F6F12F001EE2B3 /* UserTableViewCell.swift in Sources */,
-				44F3E45D26F62BC20021418F /* GithubUsersWebServices.swift in Sources */,
+				44F3E45D26F62BC20021418F /* APIService.swift in Sources */,
 				4451B5C1270432CD0023C1C1 /* PersistanceStoreModel.xcdatamodeld in Sources */,
 				44EBF97A271842AF0012B9E6 /* ImageCaching-Loading.swift in Sources */,
 				4448CDD82709A33200EE3A47 /* Profile+CoreDataClass.swift in Sources */,
@@ -274,12 +352,20 @@
 				44F3E44126F6171A0021418F /* SceneDelegate.swift in Sources */,
 				44509EAA26F76F13001EE2B3 /* ProfileUserViewModel.swift in Sources */,
 				4448CDD72709A33200EE3A47 /* Profile+CoreDataProperties.swift in Sources */,
-				44F3E45626F619DE0021418F /* UserListViewModel.swift in Sources */,
+				44F3E45626F619DE0021418F /* ListUsersViewModel.swift in Sources */,
 				44509EA726F769C7001EE2B3 /* ProfileUserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44DEB8322724720B006333F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44F3E43A26F6171A0021418F /* tawk.to */;
+			targetProxy = 44DEB8312724720B006333F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		44F3E44426F6171A0021418F /* Main.storyboard */ = {
@@ -301,6 +387,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		44DEB8342724720B006333F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W8Z2837V2P;
+				INFOPLIST_FILE = tawk.toTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kapil.practicesample.tawk-toTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tawk.to.app/tawk.to";
+			};
+			name = Debug;
+		};
+		44DEB8352724720B006333F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W8Z2837V2P;
+				INFOPLIST_FILE = tawk.toTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kapil.practicesample.tawk-toTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tawk.to.app/tawk.to";
+			};
+			name = Release;
+		};
 		44F3E45026F6171D0021418F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -460,6 +586,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		44DEB8332724720B006333F8 /* Build configuration list for PBXNativeTarget "tawk.toTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44DEB8342724720B006333F8 /* Debug */,
+				44DEB8352724720B006333F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		44F3E43626F6171A0021418F /* Build configuration list for PBXProject "tawk.to" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -43,6 +43,14 @@ extension UIImageView {
     }
 }
 
+extension UIView {
+    func drawBorder() {
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.black.cgColor
+    }
+}
+
+//Utilities
 class Utility {
     static func showAlert(viewController: UIViewController, title: String, message: String) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
@@ -51,4 +59,3 @@ class Utility {
         viewController.present(alert, animated: true, completion: nil)
     }
 }
-

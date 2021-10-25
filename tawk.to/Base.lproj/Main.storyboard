@@ -224,7 +224,7 @@
             <objects>
                 <viewController id="Zzd-IN-yoE" customClass="UserDetailViewController" customModule="tawk_to" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W5U-HG-h1x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1010.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1010"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9H-2D-e1g">
@@ -305,7 +305,10 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOg-su-cyt">
-                                                <rect key="frame" x="182.5" y="846.5" width="49" height="40"/>
+                                                <rect key="frame" x="172" y="846.5" width="70" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="HGo-QT-lxM"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -372,6 +375,7 @@
                         <outlet property="nameLabel" destination="6H0-S3-Y7Y" id="Gyd-VG-eFB"/>
                         <outlet property="noteTextView" destination="Q5Q-Zg-E3C" id="vRz-KE-yiU"/>
                         <outlet property="profilePic" destination="gEP-Tk-91l" id="UOB-Ca-rjt"/>
+                        <outlet property="saveButton" destination="IOg-su-cyt" id="X8m-tE-UcU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpg-zk-3pj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -26,6 +26,7 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var blogLabel: UILabel!
     
     @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +41,9 @@ class UserDetailViewController: UIViewController {
 
         self.title = username
         
-        borderView.layer.borderWidth = 1
-        borderView.layer.borderColor = UIColor.black.cgColor
-        noteTextView.layer.borderWidth = 1
-        noteTextView.layer.borderColor = UIColor.black.cgColor
+        borderView.drawBorder()
+        noteTextView.drawBorder()
+        saveButton.drawBorder()
 
         viewModel.profileUser.bind(listener: { [weak self] profileUser in
             guard let profileUser = profileUser else {
@@ -64,16 +64,50 @@ class UserDetailViewController: UIViewController {
             }
         })
         
-        viewModel.fetchUser(for: username)
+        fetchUserProfile(for: username)
+    }
+    
+    func fetchUserProfile(for username: String) {
         
+        if viewModel.isProfileExist(for: username) {
+            viewModel.fetchLocalProfile(with: username)
+        } else {
+            viewModel.fetchProfile(for: username) { [unowned self] result in
+                switch result {
+                case .success(let profileUser):
+                    viewModel.saveDataToPersistanceStore(profileUser: profileUser)
+                    viewModel.fetchLocalProfile(with: profileUser.login!)
+                    break
+                case .failure(let error):
+                    switch error {
+                    case .localizedDescription(let desc):
+                        DispatchQueue.main.async {
+                            if desc.elementsEqual("The Internet connection appears to be offline.") {
+                                Utility.showAlert(viewController: self, title: "Network Connection", message: "You're offline now")
+                            } else {
+                                Utility.showAlert(viewController: self, title: "Error", message: error.localizedDescription)
+                            }
+                        }
+                        break
+                    }
+                    break
+                }
+            }
+        }
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
-        viewModel.updateProfile(with: noteTextView.text)
-        
+        let message = viewModel.updateProfile(with: noteTextView.text)
+        if message.elementsEqual("No User Present") {
+            Utility.showAlert(viewController: self, title: "Error", message: message)
+        } else if message.elementsEqual("No Text To Save") {
+            Utility.showAlert(viewController: self, title: "Empty Text", message: message)
+        } else if message.elementsEqual("Note successfully updated") {
+            Utility.showAlert(viewController: self, title: "Note Saved", message: message)
+        } else if message.elementsEqual("Error while updating") {
+            Utility.showAlert(viewController: self, title: "Error", message: message)
+        }
         customDelegate?.refreshProfile(with: username,at: index)
-        
-        Utility.showAlert(viewController: self, title: "Note Saved", message: "Note successfully updated")
     }
 }
 

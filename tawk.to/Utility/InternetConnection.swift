@@ -63,7 +63,7 @@ class NetworkCheck {
         return _sharedInstance
     }
 
-    init() {
+    private init() {
         monitor.pathUpdateHandler = { [unowned self] path in
             for (id, observations) in self.observations {
 

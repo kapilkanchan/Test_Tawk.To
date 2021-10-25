@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BF4CFEA5-1785-4232-8C0B-0ADE4104F076"
-            shouldBeEnabled = "No"
+            uuid = "CD6566CF-BE7E-431E-9E1D-E385993CD6D3"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "tawk.to/HomePage/HomePageViewController.swift"
+            filePath = "tawk.toTests/tawk_toTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "statusDidChange(status:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "testFetchListOfUsers_With_CorrectPaginationIndex_ReturnsValidData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AE80631F-82A6-4B8C-8CE0-25062610774A"
+            uuid = "B4EC6F72-77CC-4223-94C8-28F0DFC64915"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tawk.toTests/tawk_toTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "testFetchUserProfile_With_InValidRequest_ReturnsError()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC3CF06D-27C0-4BD7-A9A1-8D7D5272F725"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tawk.to/Services/PersistanceService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "isExist(_:id:name:for:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "save()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

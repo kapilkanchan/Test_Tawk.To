@@ -9,17 +9,20 @@ import Foundation
 import CoreData
 
 class PersistanceService {
+    let modelName: String!
     
-    private init() {}
+    init(modelName: String) {
+        self.modelName = modelName
+    }
     
-    static let shared = PersistanceService()
+    static let shared = PersistanceService(modelName: "PersistanceStoreModel")
     
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "PersistanceStoreModel")
+        let container = NSPersistentContainer(name: modelName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -27,21 +30,27 @@ class PersistanceService {
         })
         return container
     }()
-    
+}
+
+//Core Data Operations Handlers
+extension PersistanceService {
     // MARK: - Core Data Saving support
-    
-    func save () {
+    func save() -> Bool {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
+                return true
             } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                return false
+//                let nserror = error as NSError
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+        return false
     }
     
+    //fetch the next 30 users from database
     func fetch<T:NSManagedObject>(_ type: T.Type, id: Int, completion: @escaping ([T]) -> Void) {
         let request = NSFetchRequest<T>(entityName: String(describing: type))
         request.fetchLimit = 30
@@ -55,6 +64,7 @@ class PersistanceService {
         }
     }
     
+    //fetch user profile from database with give username
     func fetchProfile<T:NSManagedObject>(_ type: T.Type, name: String, completion: @escaping ([T]) -> Void) {
         let request = NSFetchRequest<T>(entityName: String(describing: type))
         request.fetchLimit = 1
@@ -68,7 +78,7 @@ class PersistanceService {
         }
     }
 
-    
+    //checks whether the id's > givenId or use matching the given name are present in database
     func isExist<T:NSManagedObject>(_ type: T.Type, id: Int?, name: String?, for profile: Bool) -> Bool {
         let context = persistentContainer.viewContext
 
@@ -82,7 +92,8 @@ class PersistanceService {
         }
     }
     
-    func batchUpdateRequest(entityName: String, updateAttribute: String, updateValue: String, name: String) {
+    //Updates only note column for a given username
+    func batchUpdateRequest(entityName: String, updateAttribute: String, updateValue: String, name: String) -> Bool {
         let context = persistentContainer.viewContext
 
         let batchRequest = NSBatchUpdateRequest(entityName: entityName)
@@ -98,7 +109,10 @@ class PersistanceService {
                 let managedObject = context.object(with: objID)
                 context.refresh(managedObject, mergeChanges: false)
             })
+            
+            return true
         } catch {
+            return false
         }
     }
 }
